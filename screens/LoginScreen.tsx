@@ -1,17 +1,17 @@
 
 import { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Alert, Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 //pagina do login
 export default function LoginScreen(){
     const[email, setEmail] = useState('')
     const[senha, setSenha] = useState('')
     return(
         <View style={styles.container}>
-            <Text>Usuário {email}</Text>
+            <Text>Usuário</Text>
             <TextInput style={styles.input} placeholder="Digite seu e-mail:" onChangeText={(e) => setEmail(e)}></TextInput>
-            <Text>Senha {senha}</Text>
+            <Text>Senha</Text>
             <TextInput style={styles.input} placeholder="Informe sua senha:" onChangeText={(e) => setSenha(e)}></TextInput>
-            <TouchableOpacity style={styles.botao}>
+            <TouchableOpacity style={styles.botao} onPress={() => Alert.alert(`Usuario: ${email}\n senha: ${senha}`)}>
                 <Text style={styles.texto}>Confirmar Login</Text>
             </TouchableOpacity>
         </View>
