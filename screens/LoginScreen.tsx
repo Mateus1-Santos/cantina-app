@@ -24,7 +24,7 @@ export default function LoginScreen(){
             <Text>Senha</Text>
             <TextInput style={styles.input} placeholder="Informe sua senha:" onChangeText={(e) => setSenha(e)}></TextInput>
             <TouchableOpacity style={styles.botao} onPress={() => Alert.alert(`Usuario: ${email}\n senha: ${senha}`)}>
-                <Text style={styles.texto}>Confirmar Login</Text>
+                <Text style={styles.texto} onPress={handleLogin}>Confirmar Login</Text>
             </TouchableOpacity>
         </View>
     )
