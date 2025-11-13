@@ -1,12 +1,24 @@
 
+import React from "react";
 import { useState } from "react";
 import { Alert, Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 //pagina do login
 export default function LoginScreen(){
     const[email, setEmail] = useState('')
     const[senha, setSenha] = useState('')
+
+    function handleLogin(){
+        // 1 passo - Validar usuario e senha
+        if(email === 'teste@teste.com' && senha === '123'){
+            Alert.alert('Usuário válido');
+        }else {
+            Alert.alert('Usuário não encontrado')
+        }
+        // 2 passo - Redirecionar para tela principal   
+    }
     return(
         <View style={styles.container}>
+            <Text style={styles.textoLogin}>Login</Text>
             <Text>Usuário</Text>
             <TextInput style={styles.input} placeholder="Digite seu e-mail:" onChangeText={(e) => setEmail(e)}></TextInput>
             <Text>Senha</Text>
@@ -18,6 +30,7 @@ export default function LoginScreen(){
     )
 }
 
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -25,11 +38,18 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    textoLogin: {
+        fontSize:  60,
+        fontFamily: 'Arial',
+        marginBottom: 40, 
+        fontWeight: 'bold',
+    },
     input: {
         padding: 10,
         height: 40,
         width: 200,
         margin: 5,
+        marginBottom: 12,
         borderWidth: 1,
         borderColor: '#000',
         borderRadius: 5,
